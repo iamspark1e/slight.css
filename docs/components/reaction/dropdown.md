@@ -7,7 +7,7 @@
 ## 基础用法
 
 ```html
-<div class="slightcss slightcss_container">
+<div class="slightcss slightcss_container slightcss_dropdown">
     <input type="checkbox" class="slightcss_dropdown_state" id="encryptShowDialog" />
     <label class="slightcss_dropdown_button" for="encryptShowDialog">
     	<!-- Customize -->
@@ -28,7 +28,7 @@
 
 ```html
 <div style="height: 300px;"></div>
-<div class="slightcss slightcss_container">
+<div class="slightcss slightcss_container slightcss_dropdown">
     <input type="checkbox" class="slightcss_dropdown_state" id="encryptShowDialog" />
     <label class="slightcss_dropdown_button" for="encryptShowDialog">
     	<!-- Customize -->
