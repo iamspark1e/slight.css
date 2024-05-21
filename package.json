@@ -1,0 +1,26 @@
+{
+  "name": "slight-css",
+  "version": "0.0.1",
+  "description": "A minimal CSS library for implementing components through a specific HTML structure and features",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev --port 38081 --host 0.0.0.0",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview --port 38081",
+    "build": "lessc --source-map public/style.less dist/styles.css --clean-css='--s1 --advanced --compatibility=ie8'"
+  },
+  "keywords": [
+    "vitepress",
+    "slight",
+    "css",
+    "ui",
+    "library"
+  ],
+  "author": "iamspark1e",
+  "license": "MIT",
+  "devDependencies": {
+    "less": "^4.2.0",
+    "less-plugin-clean-css": "^1.5.1",
+    "vitepress": "^1.1.4"
+  }
+}
