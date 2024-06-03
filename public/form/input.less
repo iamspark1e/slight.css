@@ -1,0 +1,21 @@
+input.slightcss.slightcss_input,
+.slightcss input.slightcss_input {
+    // remove all default style
+    outline: none;
+    appearance: none;
+    border: none;
+
+    // pseudo-element mode, not compatible with IE series
+    // &::placeholder {
+
+    // }
+
+    // compatible-mode, use another div, IE9+
+    &+.compatible-placeholder {
+        display: none;
+    }
+
+    &:empty+.compatible-placeholder {
+        display: block;
+    }
+}

@@ -1,0 +1,36 @@
+/* common */
+.slightcss {
+    // class name control
+    &.slightcss_block,
+    & .slightcss_block {
+        display: block;
+    }
+
+    &.slightcss_inline,
+    & .slightcss_inline {
+        display: inline-block;
+    }
+
+    &.slightcss_flex,
+    & .slightcss_flex {
+        display: flex;
+    }
+
+    &.slightcss_none,
+    & .slightcss_none {
+        display: none;
+    }
+
+    &.slightcss_none_important,
+    & .slightcss_none_important {
+        display: none !important;
+    }
+
+    // no-class mode, use data-* attr control
+    *[data-slightcss-layout="none"] {
+        display: none;
+    }
+    *[data-slightcss-layout="none-important"] {
+        display: none !important;
+    }
+}

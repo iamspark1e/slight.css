@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "Slight CSS"
-  text: "A minimal CSS library for implementing components through a specific HTML structure and features."
-  tagline: My great project tagline
+  name: Slight CSS
+  # text: Pure CSS components without JavaScript
+  tagline: A minimal CSS library for implementing components through a specific HTML structure and features.
   actions:
     - theme: brand
       text: Quickstart

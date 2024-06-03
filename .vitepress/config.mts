@@ -13,7 +13,7 @@ export default defineConfig({
       {
         text: 'Quickstart',
         items: [
-          { text: 'Intro', link: '/docs/guide/index' },
+          // { text: 'Intro', link: '/docs/guide/index' },
           { text: 'Install', link: '/docs/guide/install' }
         ]
       },
@@ -30,6 +30,12 @@ export default defineConfig({
             text: 'Reaction Components',
             items: [
               { text: '下拉菜单 Dropdown', link: '/docs/components/reaction/dropdown' },
+            ]
+          },
+          {
+            text: 'Layout Components',
+            items: [
+              { text: '头部组件 Header', link: '/docs/components/layout/header' }
             ]
           }
         ]

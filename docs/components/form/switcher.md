@@ -1,10 +1,12 @@
-# 下拉菜单(Dropdown)
+# 滑块(Switcher)
 
 ## 依赖
 
 ## 兼容性
 
 ## 基础用法
+
+> TODO: 增加计算工具
 
 ```html
 <label class="slightcss slightcss_switcher">
