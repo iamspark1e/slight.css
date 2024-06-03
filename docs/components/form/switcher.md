@@ -6,8 +6,6 @@
 
 ## 基础用法
 
-> TODO: 增加计算工具
-
 ```html
 <label class="slightcss slightcss_switcher">
     <input type="checkbox" />
@@ -16,3 +14,7 @@
 ```
 
 <iframe style="width:100%;min-height:300px;" src="/_demo/switcher/basic.html"></iframe>
+
+## 计算工具
+
+<iframe style="width:100%;min-height:300px;" src="/_demo/switcher/_calc.html"></iframe>

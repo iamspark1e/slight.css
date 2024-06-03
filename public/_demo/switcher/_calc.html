@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slight.css Switcher Calculator</title>
+    <link rel="stylesheet/less" type="text/css" href="../../style.less" />
+    <script src="../../_assets/less.min.js" type="text/javascript"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body data-theme="light" x-data="indexPageData">
+    <form x-on:submit.prevent="submitFormHandler">
+        <label><span>前缀类名(prefix)</span><input type="text" x-model="prefix_class"></label>
+        <label><span>大小单位</span><input type="text" x-model="unit"></label>
+        <label><span>滑块大小</span><input type="text" x-model="width">x<input type="text" x-model="height"></label>
+        <label><span>滑块容器大小</span><input type="text" x-model="cWidth">x<input type="text" x-model="cHeight"></label>
+        <label><span>容器留白边距</span><input type="text" x-model="spacing"></label>
+        <textarea x-model="htmlData" readonly style="height: 500px;border: 1px solid #333;"></textarea>
+        <textarea x-model="cssData" readonly style="height: 500px;border: 1px solid #333;"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('indexPageData', () => {
+            return {
+                width: 0,
+                height: 0,
+                cWidth: 0,
+                cHeight: 0,
+                spacing: 0,
+                unit: 'px',
+                prefix_class: '',
+                htmlData: `
+    <label class="switch ${this.prefix_class}">
+        <input type="checkbox" />
+        <span class="slider round"></span>
+    </label>
+                    `,
+                cssData: "",
+                submitFormHandler() {
+                    this.cssData = this._generateCss(this.width, this.height, this.cWidth, this.cHeight, {
+                        leftSpace: this.spacing,
+                        unit: this.unit,
+                    })
+                },
+                _generateCss(switcherWidth, switcherHeight, containerWidth, containerHeight, options = {}) {
+                    var opt = {
+                        leftSpace: options.leftSpace || 0,
+                        unit: options.unit || 'px',
+                        switcherColor: options.switcherColor || "#fff",
+                        switcherActiveBgColor: options.switcherActiveBgColor || "#2196f3",
+                        switcherDefaultBgColor: options.switcherDefaultBgColor || "#ccc"
+                    }
+                    return `
+    .${this.prefix_class}.switch {
+        position: relative;
+        display: inline-block;
+        width: ${containerWidth}${opt.unit};
+        height: ${containerHeight}${opt.unit};
+    }
+    
+    ${this.prefix_class}.switch input {
+        opacity: 0;
+        width: 0;
+        height: 0
+    }
+    
+    ${this.prefix_class} .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: ${opt.switcherDefaultBgColor};
+        -webkit-transition: .4s;
+        transition: .4s
+    }
+    
+    ${this.prefix_class} .slider:before {
+        position: absolute;
+        content: "";
+        height: ${switcherHeight}${opt.unit};
+        width: ${switcherWidth}${opt.unit};
+        left: ${opt.leftSpace}${opt.unit};
+        bottom: ${(containerHeight - switcherHeight) / 2}${opt.unit};
+        background-color: ${opt.switcherColor};
+        -webkit-transition: .4s;
+        transition: .4s
+    }
+    
+    ${this.prefix_class} input:checked+.slider {
+        background-color: ${opt.switcherActiveBgColor}
+    }
+    
+    ${this.prefix_class} input:focus+.slider {
+        box-shadow: 0 0 1${opt.unit} ${opt.switcherActiveBgColor}
+    }
+    
+    ${this.prefix_class} input:checked+.slider:before {
+        -webkit-transform: translateX(${containerWidth - switcherWidth - 2 * (opt.leftSpace)}${opt.unit});
+        -ms-transform: translateX(${containerWidth - switcherWidth - 2 * (opt.leftSpace)}${opt.unit});
+        transform: translateX(${containerWidth - switcherWidth - 2 * (opt.leftSpace)}${opt.unit})
+    }
+    
+    ${this.prefix_class} .slider.round {
+        border-radius: ${containerHeight}${opt.unit}
+    }
+    
+    ${this.prefix_class} .slider.round:before {
+        border-radius: 50%
+    }
+                        `
+                },
+                // lifecycle
+                init() { }
+            }
+        })
+    })
+</script>
+
+</html>
