@@ -62,13 +62,13 @@
         height: ${containerHeight}${opt.unit};
     }
     
-    ${this.prefix_class}.switch input {
+    .${this.prefix_class}.switch input {
         opacity: 0;
         width: 0;
         height: 0
     }
     
-    ${this.prefix_class} .slider {
+    .${this.prefix_class} .slider {
         position: absolute;
         cursor: pointer;
         top: 0;
@@ -80,7 +80,7 @@
         transition: .4s
     }
     
-    ${this.prefix_class} .slider:before {
+    .${this.prefix_class} .slider:before {
         position: absolute;
         content: "";
         height: ${switcherHeight}${opt.unit};
@@ -92,25 +92,25 @@
         transition: .4s
     }
     
-    ${this.prefix_class} input:checked+.slider {
+    .${this.prefix_class} input:checked+.slider {
         background-color: ${opt.switcherActiveBgColor}
     }
     
-    ${this.prefix_class} input:focus+.slider {
+    .${this.prefix_class} input:focus+.slider {
         box-shadow: 0 0 1${opt.unit} ${opt.switcherActiveBgColor}
     }
     
-    ${this.prefix_class} input:checked+.slider:before {
+    .${this.prefix_class} input:checked+.slider:before {
         -webkit-transform: translateX(${containerWidth - switcherWidth - 2 * (opt.leftSpace)}${opt.unit});
         -ms-transform: translateX(${containerWidth - switcherWidth - 2 * (opt.leftSpace)}${opt.unit});
         transform: translateX(${containerWidth - switcherWidth - 2 * (opt.leftSpace)}${opt.unit})
     }
     
-    ${this.prefix_class} .slider.round {
+    .${this.prefix_class} .slider.round {
         border-radius: ${containerHeight}${opt.unit}
     }
     
-    ${this.prefix_class} .slider.round:before {
+    .${this.prefix_class} .slider.round:before {
         border-radius: 50%
     }
                         `
